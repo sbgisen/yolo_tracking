@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <node pkg="box_mot" type="tracker.py" name="tracker" output="screen">
+    <remap from="image" to="/soar/head_camera/rgb/image_rect"/>
+    <remap from="rects" to="/soar/perception/object_detection/instance_segmentation/output/rects"/>
+    <remap from="results" to="/soar/perception/object_detection/instance_segmentation/output/class"/>
+  </node>
+</launch>
