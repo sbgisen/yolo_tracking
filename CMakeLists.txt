@@ -6,7 +6,13 @@ find_package(
   COMPONENTS sensor_msgs
              cv_bridge
              rospy
+             std_msgs
+             message_generation
 )
+
+add_message_files(FILES Features.msg)
+
+generate_messages(DEPENDENCIES std_msgs)
 
 catkin_package(
   #  INCLUDE_DIRS include
@@ -15,6 +21,7 @@ catkin_package(
     sensor_msgs
     cv_bridge
     rospy
+    message_runtime
   #  DEPENDS system_lib
 )
 
