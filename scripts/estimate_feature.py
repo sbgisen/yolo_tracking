@@ -48,8 +48,8 @@ class EstimateFeature(object):
         image = self.__bridge.imgmsg_to_cv2(img, desired_encoding='bgr8')
         detections = []
         for rect, name, prob, label_id in zip(rects.rects, results.label_names, results.label_proba, results.labels):
-            if name != 'person':
-                continue
+            # if name != 'person':
+            #     continue
             detections.append([rect.x, rect.y, rect.x + rect.width, rect.y + rect.height, prob, label_id])
         if not detections:
             return
