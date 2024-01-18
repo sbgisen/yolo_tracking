@@ -26,6 +26,6 @@ catkin_package(
 )
 
 install(
-  PROGRAMS scripts/completion.py
+  PROGRAMS scripts/estimate_feature.py scripts/tracker.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
