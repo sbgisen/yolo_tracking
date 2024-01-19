@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
+  <arg name="model" default="osnet_x0_25_msmt17.pt"/>
+  <arg name="remove_background" default="false"/>
+  <arg name="image_topic" default="image"/>
+  <arg name="rects_topic" default="rects"/>
+  <arg name="results_topic" default="results"/>
+
   <node pkg="box_mot" type="estimate_feature.py" name="estimate_feature" output="screen">
-    <remap from="image" to="/soar/head_camera/rgb/image_rect"/>
-    <remap from="rects" to="/soar/perception/object_detection/instance_segmentation/output/rects"/>
-    <remap from="results" to="/soar/perception/object_detection/instance_segmentation/output/class"/>
+    <param name="model" value="$(arg model)"/>
+    <param name="remove_background" value="$(arg remove_background)"/>
+    <remap from="image" to="$(arg image_topic)"/>
+    <remap from="rects" to="$(arg rects_topic)"/>
+    <remap from="results" to="$(arg results_topic)"/>
   </node>
 </launch>
